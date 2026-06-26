@@ -35,7 +35,7 @@ export default function SignupStep1({ data, onChange, onNext }) {
         <div className="phone-wrap">
           <div className="country-code">🇳🇬 +234</div>
           <input
-            type="tel"
+            type="number"
             className="phone-input"
             placeholder="812 345 6789"
             inputMode="numeric"
