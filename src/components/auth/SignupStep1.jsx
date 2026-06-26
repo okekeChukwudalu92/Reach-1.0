@@ -6,41 +6,53 @@ export default function SignupStep1({ data, onChange, onNext }) {
     onNext();
   };
 
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "");
+    onChange("phone", value);
+  };
+
   return (
     <div className="form-step">
       <div className="form-title">Create your account</div>
       <div className="form-sub">
-        Are you a student looking for a ride, or a saferide driver?
+        Are you a student looking for a ride, or a SafeRide driver?
       </div>
 
-      <RoleSelector selected={data.role} onSelect={(role) => onChange("role", roles)} />
+      <RoleSelector selected={data.role} onSelect={(role) => onChange("role", role)} />
 
       <div className="field">
         <label>Full Name</label>
-        <input type="text"
-          placeholder="e.g. Okeke Chukwudalu"
+        <input
+          type="text"
+          placeholder="e.g. Chase Okeke"
           value={data.name}
           onChange={(e) => onChange("name", e.target.value)}
         />
       </div>
 
       <div className="field">
-        <label> Phone Number </label>
+        <label>Phone Number</label>
         <div className="phone-wrap">
-          <div className="country-code">📞 +234</div>
-          <input type="tel"
+          <div className="country-code">🇳🇬 +234</div>
+          <input
+            type="tel"
             className="phone-input"
-            placeholder="111 222 3344"
+            placeholder="812 345 6789"
+            inputMode="numeric"
             value={data.phone}
-            onChange={(e) => onChange = ("phone", e.target.value)}
+            onChange={handlePhoneChange}
+            maxLength="10"
           />
         </div>
       </div>
-      <button className="btn-submit" onClick={handleSubmit}> Continue </button>
+
+      <button className="btn-submit" onClick={handleSubmit}>
+        Continue →
+      </button>
 
       <div className="terms-note">
-        By continuing you agree to our{""}
-        <a href="">terms</a> and <a href="">Privacy Policy</a>
+        By continuing you agree to our{" "}
+        <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
       </div>
     </div>
   );
