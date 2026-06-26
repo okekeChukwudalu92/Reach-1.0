@@ -75,13 +75,18 @@ export default function Auth() {
             <label>Phone Number</label>
             <div className="phone-wrap">
               <div className="country-code">🇳🇬 +234</div>
-              <input
-                type="tel"
-                className="phone-input"
-                placeholder="812 345 6789"
-                value={loginData.phone}
-                onChange={(e) => setLoginData((prev) => ({ ...prev, phone: e.target.value }))}
-              />
+             <input
+  type="tel"
+  className="phone-input"
+  placeholder="812 345 6789"
+  inputMode="numeric"
+  value={loginData.phone}
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, "");
+    setLoginData((prev) => ({ ...prev, phone: value }));
+  }}
+  maxLength="10"
+/>
             </div>
           </div>
 
