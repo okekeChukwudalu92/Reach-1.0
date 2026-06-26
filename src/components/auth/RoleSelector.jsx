@@ -18,7 +18,7 @@ export default function RoleSelector({ selected, onSelect }) {
             {roles.map((role) => (
                 <div
                 key={role.id}
-                className={`role-card${selected === role.id ? "selected" : ""}`}
+                className={`role-card ${selected === role.id ? "selected" : ""}`}
                 onClick={() => onSelect(role.id)}>
                     <div className="role-icon">{role.icon}</div>
                     <div className="role-title">{role.title}</div>
