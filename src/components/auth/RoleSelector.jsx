@@ -1,37 +1,30 @@
-function RoleSelector({ role, setRole }) {
-    return (
-      <div className="role-selector">
-  
-        <button
-          type="button"
-          className={
-            role === "student"
-              ? "role-card active"
-              : "role-card"
-          }
-          onClick={() =>
-            setRole("student")
-          }
-        >
-          🎓 Student
-        </button>
-  
-        <button
-          type="button"
-          className={
-            role === "driver"
-              ? "role-card active"
-              : "role-card"
-          }
-          onClick={() =>
-            setRole("driver")
-          }
-        >
-          🚕 Driver
-        </button>
-  
-      </div>
-    );
-  }
-  
-  export default RoleSelector;
+export default function RoleSelector({ selected, onSelect }) {
+    const roles = [
+        {
+            id: "student",
+            icon: "🎓",
+            title: "Student",
+            desc: "Book rides across campus"
+        },
+        {
+            id: "driver",
+            icon:"🛺",
+            title: "Driver",
+            desc: "Accept rides and earn"
+        },
+    ];
+    return(
+        <div className="role-selector">
+            {roles.map((role) => (
+                <div
+                key={role.id}
+                className={`role-card${selected === role.id ? "selected" : ""}`}
+                onClick={() => onSelect(role.id)}>
+                    <div className="role-icon">{role.icon}</div>
+                    <div className="role-title">{role.title}</div>
+                    <div className="role-desc">{role.desc}</div>
+                </div>
+            ))}
+        </div>
+    )
+};

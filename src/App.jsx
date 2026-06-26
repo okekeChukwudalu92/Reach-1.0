@@ -1,10 +1,15 @@
 import React from 'react'
 import AppRoutes from "./routes/AppRoutes"
-import Landing from './pages/Landing'
+import { AuthProvider } from './context/AuthContext'
 
 const App = () => {
   return (
-  <AppRoutes />
+    <AuthProvider>
+
+      <AppRoutes />
+      
+    </AuthProvider>
+  
   
   )
 }

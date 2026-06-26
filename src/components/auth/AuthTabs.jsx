@@ -1,29 +1,20 @@
-function AuthTabs({ tab, setTab }) {
-    return (
-      <div className="auth-tabs">
+import React from 'react'
+
+export default function AuthTabs({activeTab, onSwitch}) {
+
+  return (
+    <div className='tab-switcher'>
         <button
-          className={
-            tab === "signup"
-              ? "tab active"
-              : "tab"
-          }
-          onClick={() => setTab("signup")}
-        >
-          Sign Up
-        </button>
-  
-        <button
-          className={
-            tab === "login"
-              ? "tab active"
-              : "tab"
-          }
-          onClick={() => setTab("login")}
-        >
-          Login
-        </button>
-      </div>
-    );
-  }
-  
-  export default AuthTabs;
+            className={`tab-btn ${activeTab === "signup" ? "active" : ""}`}
+            onClick={() => onSwitch("signup")}
+            >
+                Create Account
+            </button>
+            <button
+            className={`tab-btn${activeTab === "login" ? "active" : ""}`}
+            onClick={() => onSwitch("login")}>
+                Log in
+            </button>
+    </div>
+  )
+}
