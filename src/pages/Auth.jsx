@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import "../styles/auth.css"
 
 import AuthTabs from "../components/auth/AuthTabs";
-import SignupStep1 from "../components/auth/SignupStep!";
+import SignupStep1 from "../components/auth/SignupStep1";
 import AuthLayout from "../components/auth/AuthLayout"
 import OtpVerification from "../components/auth/OTPVerification";
 
